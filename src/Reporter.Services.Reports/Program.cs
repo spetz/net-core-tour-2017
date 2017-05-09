@@ -13,7 +13,7 @@ namespace Reporter.Services.Reports
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseUrls("http://*:5001")
+                .UseUrls("http://*:5050")
                 .Build();
 
             host.Run();

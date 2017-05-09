@@ -7,7 +7,7 @@ do
 	 echo ========================================================
 	 echo Restoring packages for project: $project
 	 echo ========================================================
-   sudo dotnet restore $project $source
+         dotnet restore $project $source
 done
 
 testprojects=(Reporter.Tests)
@@ -17,5 +17,5 @@ do
 	 echo ========================================================
 	 echo Restoring packages for test project: $project
 	 echo ========================================================
-   sudo dotnet restore $project $source
+         dotnet restore $project $source
 done

@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  start_dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - rabbitmq
+    command: rabbitmq:5672
+
+  api:
+    build: ../src/Reporter.Api
+    links:
+      - rabbitmq
+      - reports-service
+    ports:
+      - '5000:5000'
+
+  reports-service:
+    build: ../src/Reporter.Services.Reports
+    links:
+      - rabbitmq
+    ports:
+      - '5050:5050'  
+
+  rabbitmq:
+    image: rabbitmq:3.6.5-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
